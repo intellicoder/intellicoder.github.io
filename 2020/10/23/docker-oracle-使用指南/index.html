@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hello World | 微笑的白&#39;s Blog</title>
+  <title>docker oracle 使用指南 | 微笑的白&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="[TOC] 一、开始步骤进入镜像命令1docker exec -it a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb7111667fa080 bash  tips：如果是刚启动docker，还要启动容器 1docker start a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb711">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2020/10/23/hello-world/index.html">
+<meta property="og:title" content="docker oracle 使用指南">
+<meta property="og:url" content="http://example.com/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="微笑的白&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="[TOC] 一、开始步骤进入镜像命令1docker exec -it a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb7111667fa080 bash  tips：如果是刚启动docker，还要启动容器 1docker start a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb711">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-23T09:06:52.236Z">
-<meta property="article:modified_time" content="2020-10-23T09:06:52.237Z">
+<meta property="article:published_time" content="2020-10-23T12:58:22.000Z">
+<meta property="article:modified_time" content="2020-10-23T13:25:31.817Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="oracle">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="微笑的白&#39;s Blog" type="application/atom+xml">
@@ -154,40 +155,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker-oracle-使用指南" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      docker oracle 使用指南
     </h1>
   
 
         
-        <a href="/2020/10/23/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-23T09:06:52.236Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
+        <a href="/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2020-10-23T12:58:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>[TOC]</p>
+<h2 id="一、开始步骤"><a href="#一、开始步骤" class="headerlink" title="一、开始步骤"></a>一、开始步骤</h2><h4 id="进入镜像命令"><a href="#进入镜像命令" class="headerlink" title="进入镜像命令"></a>进入镜像命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb7111667fa080 bash</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>tips：如果是刚启动docker，还要启动容器</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start a93b558316cd37cca41a21796aae55a9675667e1a48c35788acb7111667fa080</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="如何进入sql-plus"><a href="#如何进入sql-plus" class="headerlink" title="如何进入sql*plus"></a>如何进入sql*plus</h4><p>首先进入bin目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/bin</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>执行环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile </span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>创建软链接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="variable">$ORACLE_HOME</span>/bin/sqlplus /usr/bin</span><br></pre></td></tr></table></figure>
 
+<p>登陆sqlplus</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlplus /nolog</span><br></pre></td></tr></table></figure>
+ <a id="more"></a>
+
+<h2 id="二、管理安全性"><a href="#二、管理安全性" class="headerlink" title="二、管理安全性"></a>二、管理安全性</h2><ul>
+<li>以system用户登陆</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect system/zhuzhi123;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>登陆数据库实例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect 用户名&#x2F;口令 @实例名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>建立用户</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> zz1 indentified <span class="keyword">by</span> 口令</span><br></pre></td></tr></table></figure>
+
+<pre><code>用户创建后必须授权
+
+权限分为系统权限和对象权限
+
+其中create session是系统权限，是让用户能连接数据库的权限
+
+tips：grant后面没有on的两种情况
+
+1.grant后面是系统权限而不是对象权限，后面没有on    
+
+2.grant后面是角色时（因为角色是权限的集合）</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">session</span> <span class="keyword">to</span> 用户</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改口令</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> zz1 <span class="keyword">identified</span> <span class="keyword">by</span> 新密码;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>oracle有一个默认用户，但是是被锁定的。</p>
+<p>该账号用户名：scott</p>
+<p>密码：tiger</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect scott/tiger @helowin;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解除默认账户的锁定</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> scott <span class="keyword">account</span> <span class="keyword">unlock</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把scott/tiger账号重新锁定</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> scott <span class="keyword">account</span> <span class="keyword">lock</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查询系统当中默认的表空间</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> tablespace_name,<span class="keyword">contents</span> <span class="keyword">from</span> dba_tablespaces;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>修改系统默认的表空间</p>
+<p>把用户zz1的默认的表空间和临时表空间修改</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> zz1 <span class="keyword">default</span> <span class="keyword">tablespace</span> <span class="keyword">users</span> <span class="keyword">temporary</span> <span class="keyword">tablespace</span> temp;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>给角色授予创建表的权限</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">to</span> zz1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建表</p>
+<p>Tips:10g这样写会出错（具体见p195 图8-8）</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> Stu(    </span><br><span class="line">   Sno <span class="built_in">char</span>(<span class="number">10</span>),</span><br><span class="line">   Sname <span class="built_in">varchar</span>(<span class="number">30</span>),</span><br><span class="line">   Sage <span class="built_in">int</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>删除用户</p>
+<p>必须指定cascade（极联）关键词,否则将无法删除。</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">user</span> zz <span class="keyword">cascade</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、对象权限"><a href="#三、对象权限" class="headerlink" title="三、对象权限"></a>三、对象权限</h2><ul>
+<li>创建用户</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> zhuzhi <span class="keyword">identified</span> <span class="keyword">by</span> <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切换到管理员权限</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connsct system/zhuzhi123;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>授予连接数据库的权限</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">session</span> <span class="keyword">to</span> zhuzhi;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>授予建表权限</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">to</span> zhuzhi;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切换到刚刚建的用户，并建立一个表</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect zhuzhi/123;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> mytable (<span class="keyword">id</span> <span class="built_in">number</span>) <span class="keyword">tablespace</span> MyTs;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再创建一个用户</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> zhuzhi1 <span class="keyword">identified</span> <span class="keyword">by</span> <span class="number">123</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">session</span> <span class="keyword">to</span> zhuzhi1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在zhuzhi用户下把自己表的权限授予给zhuzhi1</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conn zhuzhi/123;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> mytable <span class="keyword">to</span> zhuzhi1;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>验证是否授权成功(查询这个表有多少行)</p>
+<p>tips：因为这个表不是zhuzhi1创建的，所以表名前要加用户名zhuzhi</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect zhuzhi1/123;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> zhuzhi.mytable;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切换到system，并再次创建一个用户</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conn /as sysdba;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> zhuzhi2 <span class="keyword">identified</span> <span class="keyword">by</span> <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切换到zhuzhi1,尝试把对select zhuzhi.mytable 的权限授予给zhuzhi2</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect zhuzhi1/123;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> zhuzhi.mytable <span class="keyword">to</span> zhuzhi2;</span><br></pre></td></tr></table></figure>
+
+<pre><code>显示结果：权限不足</code></pre>
+<ul>
+<li>切换到zhuzhi，在grant语句后面加上with grant option再次授权</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connect zhuzhi/123;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> mytable <span class="keyword">to</span> zhuzhi1 <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line">connect zhuzhi1/123;</span><br><span class="line"> <span class="keyword">grant</span> <span class="keyword">select</span> <span class="keyword">on</span> zhuzhi.mytable <span class="keyword">to</span> zhuzhi2;</span><br></pre></td></tr></table></figure>
+
+<pre><code>显示结果：授权成功</code></pre>
+<ul>
+<li>收回权限</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> zhuzhi.mytable <span class="keyword">from</span> zhuzhi2;</span><br><span class="line">conn zhuzhi/123;</span><br><span class="line"><span class="keyword">revoke</span> <span class="keyword">select</span> <span class="keyword">on</span> mytable <span class="keyword">from</span> zhuzhi1;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、管理表"><a href="#四、管理表" class="headerlink" title="四、管理表"></a>四、管理表</h2><ul>
+<li>创建表空间</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> 表空间名称 <span class="keyword">datafile</span> <span class="string">&#x27;路径&#x27;</span> <span class="keyword">Size</span> 大小；</span><br></pre></td></tr></table></figure>
+
+<pre><code>Tips:datafile后面的路径必须为绝对路径
+
+一个例子：</code></pre>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> MyTs <span class="keyword">datafile</span> <span class="string">&#x27;/home/oracle/app/zhuzhi/MyTs.def&#x27;</span> <span class="keyword">size</span> <span class="number">500</span>M;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建基本表</p>
+<p>Tips:后面要指定表空间，否则会在默认表空间建表</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Student(</span><br><span class="line">	Sno <span class="built_in">char</span>(<span class="number">10</span>) PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">	Sname <span class="built_in">varchar</span>(<span class="number">40</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	Ssex <span class="built_in">char</span>(<span class="number">2</span>) <span class="keyword">CHECK</span>(Ssex <span class="keyword">IN</span> (<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;女&#x27;</span>)),</span><br><span class="line">	Sage <span class="built_in">SMALLINT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	Sdept <span class="built_in">varchar</span>(<span class="number">40</span>) </span><br><span class="line">) <span class="keyword">tablespace</span> MyTs;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -216,6 +386,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -266,7 +447,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/23/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,15 +461,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          docker oracle 使用指南
-        
-      </div>
-    </a>
   
+    <a href="/2020/10/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -313,7 +490,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%BC%80%E5%A7%8B%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">一、开始步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.1.</span> <span class="toc-text">进入镜像命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E5%85%A5sql-plus"><span class="toc-number">1.0.2.</span> <span class="toc-text">如何进入sql*plus</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%AE%A1%E7%90%86%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">二、管理安全性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AF%B9%E8%B1%A1%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">三、对象权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%AE%A1%E7%90%86%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">四、管理表</span></a></li></ol>
                     </div>
                 </span>
             </div>
