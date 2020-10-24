@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2020 | 微笑的白&#39;s Blog</title>
+  <title>安卓使用Sqlite进行数据存储 | 微笑的白&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="微笑的白&#39;s Blog">
-<meta property="og:url" content="http://example.com/archives/2020/index.html">
+  <meta name="description" content="[TOC] 1、SQLiteOpenHelper类SQLiteOpenHelper类是一个抽象类，在使用的时候的时候，必须要自己再写一个类继承它。也就是我写的user_database类。 1234567891011121314151617public class user_database extends SQLiteOpenHelper &amp;#123;    public user_databa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓使用Sqlite进行数据存储">
+<meta property="og:url" content="http://example.com/2020/10/24/%E5%AE%89%E5%8D%93%E4%BD%BF%E7%94%A8Sqlite%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="微笑的白&#39;s Blog">
+<meta property="og:description" content="[TOC] 1、SQLiteOpenHelper类SQLiteOpenHelper类是一个抽象类，在使用的时候的时候，必须要自己再写一个类继承它。也就是我写的user_database类。 1234567891011121314151617public class user_database extends SQLiteOpenHelper &amp;#123;    public user_databa">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/10/24/jxNz8aMVUkRQw2v.jpg">
+<meta property="article:published_time" content="2020-10-24T07:52:48.000Z">
+<meta property="article:modified_time" content="2020-10-24T09:16:19.851Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="安卓基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/24/jxNz8aMVUkRQw2v.jpg">
   
     <link rel="alternative" href="/atom.xml" title="微笑的白&#39;s Blog" type="application/atom+xml">
   
@@ -150,36 +157,118 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-安卓使用Sqlite进行数据存储" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/24/%E5%AE%89%E5%8D%93%E4%BD%BF%E7%94%A8Sqlite%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" class="archive-article-date">
-  	<time datetime="2020-10-24T07:52:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/24/%E5%AE%89%E5%8D%93%E4%BD%BF%E7%94%A8Sqlite%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/">安卓使用Sqlite进行数据存储</a>
+    <h1 class="article-title" itemprop="name">
+      安卓使用Sqlite进行数据存储
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/10/24/%E5%AE%89%E5%8D%93%E4%BD%BF%E7%94%A8Sqlite%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" class="archive-article-date">
+  	<time datetime="2020-10-24T07:52:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h2 id="1、SQLiteOpenHelper类"><a href="#1、SQLiteOpenHelper类" class="headerlink" title="1、SQLiteOpenHelper类"></a>1、SQLiteOpenHelper类</h2><p>SQLiteOpenHelper类是一个抽象类，在使用的时候的时候，必须要自己再写一个类继承它。也就是我写的user_database类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">user_database</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">user_database</span><span class="params">(<span class="meta">@Nullable</span> Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, <span class="string">&quot;user.db&quot;</span>, <span class="keyword">null</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</span><br><span class="line">        String sql = <span class="string">&quot;create table user(username varchar(20) primary key,password varchar(20) not null);&quot;</span>;</span><br><span class="line">        db.execSQL(sql);</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中父类的构造函数需要传递四个参数（上述代码3行），即第一个参数：上下文；第二个参数：数据库的名字；第三个参数：用于创建游标对象，默认为null；第四个参数：数据库版本。</p>
+<p>既然继承自抽象类SQLiteOpenHelper，就必须实现它父类的两个抽象方法：onCreate()和onUpgrade()。</p>
+<p>onCreate()函数，接受一个数据库对象，并且调用execSQL()方法创建数据库。</p>
+<p>onUpgrade()函数，在升级数据库版本发生变化时才会调用。为什么函数体为空，还要写在这儿呢？答：因为它是抽象方法，必须被继承类重写（这涉及java基础语法）。</p>
+<h2 id="2、添加数据函数"><a href="#2、添加数据函数" class="headerlink" title="2、添加数据函数"></a>2、添加数据函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(<span class="string">&quot;username&quot;</span>,username);</span><br><span class="line">        values.put(<span class="string">&quot;password&quot;</span>,password);</span><br><span class="line">        sqLiteDatabase.insert(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,values);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中ContentValues是一个容器（用于存储数据的），其底层实现和HashTable一样（数据结构中的哈希表）,它与java中的HashTable类最大的区别就在于，ContentVlues只能存储基本类型的数据，像string，int之类的，不能存储对象这种东西，而HashTable却可以存储对象。</p>
+<p>调用SQLiteDatabase类的insert()方法来插入数据，第一个参数：表名；第二个参数：强行插入null值的数据列的列名；第三个参数：插入的数据（必须是ContentValues类型）。</p>
+<p>附上insert()函数的底层实现:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">insert</span><span class="params">(String table, String nullColumnHack, ContentValues values)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> insertWithOnConflict(table, nullColumnHack, values, CONFLICT_NONE);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">           Log.e(TAG, <span class="string">&quot;Error inserting &quot;</span> + values, e);</span><br><span class="line">           <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">insertWithOnConflict</span><span class="params">(String table, String nullColumnHack,</span></span></span><br><span class="line"><span class="function"><span class="params">           ContentValues initialValues, <span class="keyword">int</span> conflictAlgorithm)</span> </span>&#123;</span><br><span class="line">       acquireReference();</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           StringBuilder sql = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">           sql.append(<span class="string">&quot;INSERT&quot;</span>);</span><br><span class="line">           sql.append(CONFLICT_VALUES[conflictAlgorithm]);</span><br><span class="line">           sql.append(<span class="string">&quot; INTO &quot;</span>);</span><br><span class="line">           sql.append(table);</span><br><span class="line">           sql.append(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line"></span><br><span class="line">           Object[] bindArgs = <span class="keyword">null</span>;</span><br><span class="line">           <span class="keyword">int</span> size = (initialValues != <span class="keyword">null</span> &amp;&amp; !initialValues.isEmpty())</span><br><span class="line">                   ? initialValues.size() : <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">if</span> (size &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               bindArgs = <span class="keyword">new</span> Object[size];</span><br><span class="line">               <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">               <span class="keyword">for</span> (String colName : initialValues.keySet()) &#123;</span><br><span class="line">                   sql.append((i &gt; <span class="number">0</span>) ? <span class="string">&quot;,&quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">                   sql.append(colName);</span><br><span class="line">                   bindArgs[i++] = initialValues.get(colName);</span><br><span class="line">               &#125;</span><br><span class="line">               sql.append(<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">               sql.append(<span class="string">&quot; VALUES (&quot;</span>);</span><br><span class="line">               <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">                   sql.append((i &gt; <span class="number">0</span>) ? <span class="string">&quot;,?&quot;</span> : <span class="string">&quot;?&quot;</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               sql.append(nullColumnHack + <span class="string">&quot;) VALUES (NULL&quot;</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           sql.append(<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line"></span><br><span class="line">           SQLiteStatement statement = <span class="keyword">new</span> SQLiteStatement(<span class="keyword">this</span>, sql.toString(), bindArgs);</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               <span class="keyword">return</span> statement.executeInsert();</span><br><span class="line">           &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">               statement.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           releaseReference();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、删除数据函数"><a href="#3、删除数据函数" class="headerlink" title="3、删除数据函数"></a>3、删除数据函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username)</span> </span>&#123;</span><br><span class="line">        sqLiteDatabase.delete(<span class="string">&quot;user&quot;</span>,<span class="string">&quot;username=?&quot;</span>,<span class="keyword">new</span> String[]&#123;username&#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用delete函数进行删除，第一个参数：表名；第二个参数：要删除的字段；第三个参数：字段满足的条件（相当于where后面的内容）。调用这个函数相当于执行sql语言：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username = [参数中username];</span><br></pre></td></tr></table></figure>
+
+<p>这里附上SQLiteDatabase类delete函数的底层实现：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public int <span class="keyword">delete</span>(<span class="keyword">String</span> <span class="keyword">table</span>, <span class="keyword">String</span> whereClause, <span class="keyword">String</span>[] whereArgs) &#123;</span><br><span class="line">     acquireReference();</span><br><span class="line">     try &#123;</span><br><span class="line">         SQLiteStatement statement =  new SQLiteStatement(this, &quot;<span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">&quot; + table +</span></span><br><span class="line"><span class="string">                 (!TextUtils.isEmpty(whereClause) ? &quot;</span> <span class="keyword">WHERE</span> <span class="string">&quot; + whereClause : &quot;&quot;), whereArgs);</span></span><br><span class="line"><span class="string">         try &#123;</span></span><br><span class="line"><span class="string">             return statement.executeUpdateDelete();</span></span><br><span class="line"><span class="string">         &#125; finally &#123;</span></span><br><span class="line"><span class="string">             statement.close();</span></span><br><span class="line"><span class="string">         &#125;</span></span><br><span class="line"><span class="string">     &#125; finally &#123;</span></span><br><span class="line"><span class="string">         releaseReference();</span></span><br><span class="line"><span class="string">     &#125;</span></span><br><span class="line"><span class="string"> &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、更新数据函数"><a href="#四、更新数据函数" class="headerlink" title="四、更新数据函数"></a>四、更新数据函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个ContentValues对象</span></span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(<span class="string">&quot;password&quot;</span>,password);</span><br><span class="line">        <span class="comment">//执行修改的方法</span></span><br><span class="line">        sqLiteDatabase.update(<span class="string">&quot;user&quot;</span>,values,<span class="string">&quot;username=?&quot;</span>,<span class="keyword">new</span> String[]&#123;username&#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理，调用SQLiteDataBase类的update函数来实现更新数据的操作。</p>
+<table>
+<thead>
+<tr>
+<th>参数1</th>
+<th align="center">表名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>参数2</td>
+<td align="center">新值</td>
+</tr>
+<tr>
+<td>参数3</td>
+<td align="center">字段</td>
+</tr>
+<tr>
+<td>参数4</td>
+<td align="center">字段值</td>
+</tr>
+</tbody></table>
+<h2 id="五、查询数据函数"><a href="#五、查询数据函数" class="headerlink" title="五、查询数据函数"></a>五、查询数据函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">queryUser</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        Cursor cursor = sqLiteDatabase.query(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,<span class="string">&quot;username = ? and password = ?&quot;</span>,<span class="keyword">new</span> String[]&#123;username,password&#125;,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">        cursor.moveToFirst();</span><br><span class="line">        <span class="keyword">boolean</span> status = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (cursor.getCount() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            status = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close();</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>数据库查询要用到游标。什么是游标呢？可以将游标看作一个指针，一个指向数据库的一个记录的指针。</p>
+<p>游标存在的意义就是方便数据查找，使得数据查找更加的灵活。</p>
+<p>其底层实现较复杂，在这里就不列出源码了。</p>
+<h2 id="六、在MainActivity中使用数据库"><a href="#六、在MainActivity中使用数据库" class="headerlink" title="六、在MainActivity中使用数据库"></a>六、在MainActivity中使用数据库</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">   user_database userDatabase;</span><br><span class="line">   SQLiteDatabase sqLiteDatabaseWrite;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">    		</span><br><span class="line">    		userDatabase = <span class="keyword">new</span> user_database(MainActivity.<span class="keyword">this</span>);</span><br><span class="line">        sqLiteDatabaseWrite = userDatabase.getWritableDatabase();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录：源代码"><a href="#附录：源代码" class="headerlink" title="附录：源代码"></a>附录：源代码</h2><h3 id="1、布局文件activity-main-xml"><a href="#1、布局文件activity-main-xml" class="headerlink" title="1、布局文件activity_main.xml"></a>1、布局文件activity_main.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">&quot;center_horizontal&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">&quot;.MainActivity&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&quot;用户名&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/etusername&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:hint</span>=<span class="string">&quot;密码&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/etpassword&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;注册&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_add&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;登陆&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_login&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;修改&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_change&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;删除&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_delete&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;查询数据库所有记录&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/btn_queryAll&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/showAll&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>布局截图：</p>
+<p><img src="https://i.loli.net/2020/10/24/jxNz8aMVUkRQw2v.jpg"></p>
+<h3 id="2、Mainactivity-java"><a href="#2、Mainactivity-java" class="headerlink" title="2、Mainactivity.java"></a>2、Mainactivity.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.databasedemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AlertDialog;</span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.DialogInterface;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteDatabase;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.Button;</span><br><span class="line"><span class="keyword">import</span> android.widget.EditText;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    EditText etUsername;</span><br><span class="line">    EditText etPassword;</span><br><span class="line">    TextView showALl;</span><br><span class="line">    Button BtnLogin;</span><br><span class="line">    Button BtnRegist;</span><br><span class="line">    Button BtnChange;</span><br><span class="line">    Button BtnDelete;</span><br><span class="line">    Button BtnQueryALL;</span><br><span class="line"></span><br><span class="line">    user_database userDatabase;</span><br><span class="line">    SQLiteDatabase sqLiteDatabaseWrite;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        etUsername = findViewById(R.id.etusername);</span><br><span class="line">        etPassword = findViewById(R.id.etpassword);</span><br><span class="line">        BtnLogin = findViewById(R.id.btn_login);</span><br><span class="line">        BtnRegist = findViewById(R.id.btn_add);</span><br><span class="line">        BtnChange = findViewById(R.id.btn_change);</span><br><span class="line">        BtnDelete = findViewById(R.id.btn_delete);</span><br><span class="line">        BtnQueryALL = findViewById(R.id.btn_queryAll);</span><br><span class="line">        showALl = findViewById(R.id.showAll);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        userDatabase = <span class="keyword">new</span> user_database(MainActivity.<span class="keyword">this</span>);</span><br><span class="line">        sqLiteDatabaseWrite = userDatabase.getWritableDatabase();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        BtnRegist.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                String username = etUsername.getText().toString();</span><br><span class="line">                String password = etPassword.getText().toString();</span><br><span class="line">                <span class="keyword">if</span> (!userDatabase.queryUsername(sqLiteDatabaseWrite,username)) &#123;</span><br><span class="line">                    userDatabase.add(sqLiteDatabaseWrite,username,password);</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;注册成功&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;用户名已被注册，请换个用户名&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        BtnLogin.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                String username = etUsername.getText().toString();</span><br><span class="line">                String password = etPassword.getText().toString();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">boolean</span> status = userDatabase.queryUser(sqLiteDatabaseWrite,username,password);</span><br><span class="line">                <span class="comment">//Toast.makeText(MainActivity.this,status+&quot;&quot;,Toast.LENGTH_SHORT).show();</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(status) &#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;登陆成功&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">&quot;用户名或密码错误&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        BtnQueryALL.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                String str = userDatabase.queryUserALL(sqLiteDatabaseWrite);</span><br><span class="line">                showALl.setText(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        BtnDelete.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">final</span> String username = etUsername.getText().toString();</span><br><span class="line">                String password = etPassword.getText().toString();</span><br><span class="line">                <span class="keyword">if</span> (userDatabase.queryUser(sqLiteDatabaseWrite,username,password)) &#123;</span><br><span class="line">                    <span class="keyword">new</span> AlertDialog.Builder(MainActivity.<span class="keyword">this</span>).setTitle(<span class="string">&quot;系统提示&quot;</span>).setMessage(<span class="string">&quot;确定删除用户名吗&quot;</span>)</span><br><span class="line">                            .setPositiveButton(<span class="string">&quot;确定&quot;</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                                <span class="meta">@Override</span></span><br><span class="line">                                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                                    userDatabase.delete(sqLiteDatabaseWrite,username);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;).setNegativeButton(<span class="string">&quot;取消&quot;</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                        <span class="meta">@Override</span></span><br><span class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;用户名密码不正确或用户名不存在&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        BtnChange.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">final</span> String username = etUsername.getText().toString();</span><br><span class="line">                <span class="keyword">final</span> String password = etPassword.getText().toString();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (userDatabase.queryUsername(sqLiteDatabaseWrite,username)) &#123;</span><br><span class="line">                    <span class="keyword">new</span> AlertDialog.Builder(MainActivity.<span class="keyword">this</span>).setTitle(<span class="string">&quot;系统提示&quot;</span>)</span><br><span class="line">                            .setMessage(<span class="string">&quot;确认修改密码吗&quot;</span>)</span><br><span class="line">                            .setPositiveButton(<span class="string">&quot;确定&quot;</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                                <span class="meta">@Override</span></span><br><span class="line">                                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                                    userDatabase.update(sqLiteDatabaseWrite,username,password);</span><br><span class="line">                                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;修改成功&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;)</span><br><span class="line">                            .setNegativeButton(<span class="string">&quot;取消&quot;</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                                <span class="meta">@Override</span></span><br><span class="line">                                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;).show();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;用户名不存在&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、user-database-java"><a href="#3、user-database-java" class="headerlink" title="3、user_database.java"></a>3、user_database.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.databasedemo;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  项目名:    databaseDemo</span></span><br><span class="line"><span class="comment"> *  包名:      com.example.databasedemo</span></span><br><span class="line"><span class="comment"> *  文件名:    user_database</span></span><br><span class="line"><span class="comment"> *  创建者:    微笑的白</span></span><br><span class="line"><span class="comment"> *  创建时间:   2020/10/23 9:56 AM</span></span><br><span class="line"><span class="comment"> *  描述:      数据库</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.ContentValues;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.database.Cursor;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteDatabase;</span><br><span class="line"><span class="keyword">import</span> android.database.sqlite.SQLiteOpenHelper;</span><br><span class="line"><span class="keyword">import</span> android.widget.Toast;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.annotation.Nullable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">user_database</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">user_database</span><span class="params">(<span class="meta">@Nullable</span> Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, <span class="string">&quot;user.db&quot;</span>, <span class="keyword">null</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</span><br><span class="line">        String sql = <span class="string">&quot;create table user(username varchar(20) primary key,password varchar(20) not null);&quot;</span>;</span><br><span class="line">        db.execSQL(sql);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(<span class="string">&quot;username&quot;</span>,username);</span><br><span class="line">        values.put(<span class="string">&quot;password&quot;</span>,password);</span><br><span class="line">        sqLiteDatabase.insert(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,values);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username)</span> </span>&#123;</span><br><span class="line">        sqLiteDatabase.delete(<span class="string">&quot;user&quot;</span>,<span class="string">&quot;username=?&quot;</span>,<span class="keyword">new</span> String[]&#123;username&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//更新数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个ContentValues对象</span></span><br><span class="line">        ContentValues values = <span class="keyword">new</span> ContentValues();</span><br><span class="line">        values.put(<span class="string">&quot;password&quot;</span>,password);</span><br><span class="line">        <span class="comment">//执行修改的方法</span></span><br><span class="line">        sqLiteDatabase.update(<span class="string">&quot;user&quot;</span>,values,<span class="string">&quot;username=?&quot;</span>,<span class="keyword">new</span> String[]&#123;username&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询数据</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">queryUser</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username,String password)</span> </span>&#123;</span><br><span class="line">        Cursor cursor = sqLiteDatabase.query(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,<span class="string">&quot;username = ? and password = ?&quot;</span>,<span class="keyword">new</span> String[]&#123;username,password&#125;,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">        cursor.moveToFirst();</span><br><span class="line">        <span class="keyword">boolean</span> status = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (cursor.getCount() &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            status = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close();</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询所有用户</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryUserALL</span><span class="params">(SQLiteDatabase sqLiteDatabase)</span> </span>&#123;</span><br><span class="line">        Cursor cursor = sqLiteDatabase.query(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">        String str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cursor.getCount(); i++) &#123;</span><br><span class="line">            cursor.moveToPosition(i);</span><br><span class="line">            String name = cursor.getString(<span class="number">0</span>);</span><br><span class="line">            String word = cursor.getString(<span class="number">1</span>);</span><br><span class="line">            str += name +<span class="string">&quot;,&quot;</span> + word + <span class="string">&quot;|&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close();</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询用户名是否已经注册</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">queryUsername</span><span class="params">(SQLiteDatabase sqLiteDatabase,String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> status = <span class="keyword">false</span>;</span><br><span class="line">        Cursor cursor = sqLiteDatabase.query(<span class="string">&quot;user&quot;</span>,<span class="keyword">null</span>,<span class="string">&quot;username = ?&quot;</span>,<span class="keyword">new</span> String[]&#123;username&#125;,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">if</span>(cursor.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            status = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close();</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,99 +280,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/24/%E5%AE%89%E5%8D%93%E4%BD%BF%E7%94%A8Sqlite%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/24/%E5%AE%89%E5%8D%93%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0-getWritableDatabase-%E5%92%8CgetReadableDatabase/" class="archive-article-date">
-  	<time datetime="2020-10-24T06:38:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/24/%E5%AE%89%E5%8D%93%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0-getWritableDatabase-%E5%92%8CgetReadableDatabase/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安卓踩坑日记-getWritableDatabase()和getReadableDatabase()</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/24/%E5%AE%89%E5%8D%93%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0-getWritableDatabase-%E5%92%8CgetReadableDatabase/">安卓踩坑日记-getWritableDatabase()和getReadableDatabase()</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">安卓开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">安卓踩坑日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81SQLiteOpenHelper%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">1、SQLiteOpenHelper类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">2、添加数据函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">3、删除数据函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">四、更新数据函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">五、查询数据函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%9C%A8MainActivity%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">六、在MainActivity中使用数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text">附录：源代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6activity-main-xml"><span class="toc-number">7.1.</span> <span class="toc-text">1、布局文件activity_main.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Mainactivity-java"><span class="toc-number">7.2.</span> <span class="toc-text">2、Mainactivity.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81user-database-java"><span class="toc-number">7.3.</span> <span class="toc-text">3、user_database.java</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="archive-article-date">
-  	<time datetime="2020-10-23T12:58:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/23/docker-oracle-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">docker oracle 使用指南</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -306,8 +415,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
